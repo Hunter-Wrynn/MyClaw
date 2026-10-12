@@ -1,0 +1,44 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "{{WORKSPACE}}",
+      "model": {"primary": "openai/{{CODEX_MODEL}}"},
+      "models": {
+        "openai/{{CODEX_MODEL}}": {"agentRuntime": {"id": "codex"}}
+      },
+      "compaction": {"mode": "safeguard"},
+      "timeoutSeconds": 3600,
+      "maxConcurrent": 4,
+      "subagents": {"maxConcurrent": 8},
+      "thinkingDefault": "high"
+    }
+  },
+  "tools": {"profile": "full", "deny": ["browser", "web_search", "web_fetch"]},
+  "commands": {"native": "auto", "nativeSkills": "auto", "restart": true, "ownerDisplay": "raw"},
+  "messages": {"ackReactionScope": "group-mentions"},
+  "session": {"dmScope": "per-channel-peer"},
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "{{FEISHU_APP_ID}}",
+      "appSecret": "{{FEISHU_APP_SECRET}}",
+      "domain": "feishu",
+      "connectionMode": "websocket",
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "groupSenderAllowFrom": ["{{FEISHU_OWNER_OPEN_ID}}"],
+      "requireMention": true
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "port": "{{GATEWAY_PORT}}",
+    "auth": {"mode": "token", "token": "{{GATEWAY_TOKEN}}"}
+  },
+  "plugins": {
+    "allow": ["codex", "feishu", "openai"],
+    "entries": {"codex": {"enabled": true}, "feishu": {"enabled": true}, "openai": {"enabled": true}}
+  },
+  "skills": {"install": {"nodeManager": "npm"}}
+}

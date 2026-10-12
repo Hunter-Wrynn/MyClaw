@@ -1,0 +1,72 @@
+[
+  {
+    "name": "weekly-model-routing-monday-1140",
+    "description": "周一：Model Reuse / Model Routing / Model Selection",
+    "cron": "40 11 * * 1",
+    "script": "skills/weekly-domain-paper-review/scripts/run_codex_weekly.py",
+    "args": ["--preset", "monday-routing"],
+    "timeoutSeconds": 2400,
+    "noOutputTimeoutSeconds": 2400,
+    "outputMaxBytes": 60000
+  },
+  {
+    "name": "weekly-structured-data-tuesday-1140",
+    "description": "周二：Tabular / Time Series / Structured Data Foundation Models",
+    "cron": "40 11 * * 2",
+    "script": "skills/weekly-domain-paper-review/scripts/run_codex_weekly.py",
+    "args": ["--preset", "tuesday-structured-data"],
+    "timeoutSeconds": 2400,
+    "noOutputTimeoutSeconds": 2400,
+    "outputMaxBytes": 60000
+  },
+  {
+    "name": "weekly-adaptation-wednesday-1140",
+    "description": "周三：Continual Learning / Test-Time Adaptation / Meta-Learning / Few-shot & Efficient Adaptation",
+    "cron": "40 11 * * 3",
+    "script": "skills/weekly-domain-paper-review/scripts/run_codex_weekly.py",
+    "args": ["--preset", "wednesday-adaptation"],
+    "timeoutSeconds": 2400,
+    "noOutputTimeoutSeconds": 2400,
+    "outputMaxBytes": 60000
+  },
+  {
+    "name": "weekly-llm-posttraining-thursday-1140",
+    "description": "周四：LLM Post-training / RLVR / Reward-Value Model / Verifier / Test-time Scaling",
+    "cron": "40 11 * * 4",
+    "script": "skills/weekly-domain-paper-review/scripts/run_codex_weekly.py",
+    "args": ["--preset", "thursday-posttraining"],
+    "timeoutSeconds": 2400,
+    "noOutputTimeoutSeconds": 2400,
+    "outputMaxBytes": 60000
+  },
+  {
+    "name": "weekly-mllm-friday-1140",
+    "description": "周五：Multimodal LLM / Vision-Language Model / MLLM Evaluation & Adaptation",
+    "cron": "40 11 * * 5",
+    "script": "skills/weekly-domain-paper-review/scripts/run_codex_weekly.py",
+    "args": ["--preset", "friday-mllm"],
+    "timeoutSeconds": 2400,
+    "noOutputTimeoutSeconds": 2400,
+    "outputMaxBytes": 60000
+  },
+  {
+    "name": "ai-daily-1400",
+    "description": "每天：Juya AI Daily 中文新闻概览",
+    "cron": "0 14 * * *",
+    "script": "skills/ai-daily/scripts/fetch_ai_daily.py",
+    "args": [],
+    "timeoutSeconds": 90,
+    "noOutputTimeoutSeconds": 90,
+    "outputMaxBytes": 20000
+  },
+  {
+    "name": "hf-daily-top10-daily-1405",
+    "description": "每天：Hugging Face 官方 Daily Papers Top 10 中文摘要",
+    "cron": "5 14 * * *",
+    "script": "skills/hf-daily/scripts/fetch_hf_daily.py",
+    "args": [],
+    "timeoutSeconds": 600,
+    "noOutputTimeoutSeconds": 600,
+    "outputMaxBytes": 30000
+  }
+]
